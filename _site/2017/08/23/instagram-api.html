@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>Playing with Instagram's API</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>Playing with Instagram's API </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-08-23">2017-08-23</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#" title=""></a>&nbsp;
+  
+  <a href="/category.html#" title=""></a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#instagram" title="instagram">#instagram</a>&nbsp;
+    
+    <a href="/tags.html#api" title="api">#api</a>&nbsp;
+    
+    <a href="/tags.html#cron" title="cron">#cron</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>以下是一个关于使用 Instagram API 的 turtorial。 同时给出利用 API 用脚本给女朋友点赞的例子。（enlightened by cyan）</p>
+
+<!--more-->
+
+<ol>
+  <li>
+    <p>安装 instagram python api.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> #prerequisites
+ pip install httplib2
+ pip install simplejson
+ #
+ pip install python-instagram
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>！！特别注意：</p>
+
+<p>由于这个包已经不再维护，导致有一些代码需要修改，否则后续报错。下面会提示。</p>
+
+<ol>
+  <li>
+    <p>获取 access token</p>
+
+    <ul>
+      <li>在 Instagram 的开发者中心创建一个 app，获取后续需要的 <em>client_id</em> 和 <em>client_secret</em> 。</li>
+      <li>
+        <p>下载<a href="http://movii.github.io/blog/2017/03/14/node-instagram-get-access-token/">get_access_token.py</a>并运行，按要求输入 <em>client_id,client_secret,redirect_url</em> 以及 <em>code</em>，输出 <em>access_token</em></p>
+
+        <p>fix for OAuth2AuthExchangeError: You must provide a client_id 
+  在 <em>~/Library/Python/2.7/site-package *中 *instagram/oauth2.py</em> 102行</p>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  -        response, content = http_object.request(url, method="POST", body=data)
+  +        headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+  +        response, content = http_object.request(url, method="POST", body=data, headers=headers)
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>通过 access token 点赞。</p>
+
+    <p>main.py</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from time import sleep  
+from instagram.client import InstagramAPI
+import logging
+
+access_token = ""ENTER YOUR ACCESS TOKEN HERE""
+api = InstagramAPI(access_token=access_token,  
+            client_ips="YOUR IP",
+            client_secret="YOUR SECRET")
+
+recent_media, next_ = api.user_recent_media(user_id="5106250160", count=20)
+
+for media in recent_media:  
+    # Where the media is
+    id_ = media.id
+
+    users = [user.username for user in media.likes]
+    print users
+
+        if "YOUR USERNAME" in users:
+        print("IN PHOTO")
+
+    else:
+        print("LIKING PICTURE")
+        api.like_media(media_id=id_)
+</code></pre></div>    </div>
+
+    <p>其中 user_id=”5106250160” 改成要点赞的好友的id。
+解决 KeyError: ‘data’ with Python Instagram API client[5] 即可。</p>
+
+    <p>需要注意，由于沙盒机制，必须先邀请好友进入沙盒。</p>
+  </li>
+  <li>
+    <p>设置定时任务。</p>
+
+    <p>*/2 * * * *  表示每两分钟执行一次。crontab</p>
+
+    <p>crontab -l
+  crontab -e</p>
+  </li>
+</ol>
+
+<p>Tips:
+https://www.instagram.com/tzungtzu/media/ 可以获取 media without auth.</p>
+
+<p>TODO： 想获取自己like 的照片，好像不行，</p>
+
+<p>有机会试试Telegtam BOT 完成一些自动化。</p>
+
+<p><a href="https://t.me/BotFather">BotFather</a></p>
+
+<h3 id="references">References:</h3>
+<ol>
+  <li><a href="http://movii.github.io/blog/2017/03/14/node-instagram-get-access-token/">笔记：获取 Instagram API 的 access token</a></li>
+  <li><a href="http://leesonhsu.blogspot.hk/2016/04/instagram-api.html">http://leesonhsu.blogspot.hk/2016/04/instagram-api.html</a></li>
+  <li><a href="https://smashballoon.com/instagram-feed/find-instagram-user-id/?username=gromitintardis&amp;5611zzl19832tjrl=4">https://smashballoon.com/instagram-feed/find-instagram-user-id/?username=gromitintardis&amp;5611zzl19832tjrl=4</a></li>
+  <li><a href="https://github.com/vgavro/python-instagram/commit/9dfc264571ad7c343af3899445d13afedf23e3aa">instagram-python</a></li>
+  <li><a href="https://stackoverflow.com/questions/33924581/keyerror-data-with-python-instagram-api-client">https://stackoverflow.com/questions/33924581/keyerror-data-with-python-instagram-api-client</a></li>
+  <li><a href="https://github.com/facebookarchive/python-instagram/blob/master/README.md">https://github.com/facebookarchive/python-instagram/blob/master/README.md</a></li>
+  <li><a href="http://blog.csdn.net/xrt95050/article/details/3980567">linux笔记：crontab计划任务 - CSDN博客</a></li>
+</ol>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

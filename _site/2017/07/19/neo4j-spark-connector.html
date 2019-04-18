@@ -1,0 +1,19 @@
+<h2 id="neo4j-spark-connector">neo4j-spark-connector</h2>
+
+<p>安装第三方包 neo4j-contrib 和 graphframe</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-shell --packages neo4j-contrib:neo4j-spark-connector:2.0.0-M2,graphframes:graphframes:0.5.0-spark2.0-s_2.11
+import org.neo4j.spark._
+val neo = Neo4j(sc)
+val rdd = neo.cypher("MATCH (n:Person) RETURN id(n) as id ").loadRowRdd
+</code></pre></div></div>
+
+<p>###算法
+    a.groupBy(x =&gt; { if (x % 2 == 0) “even” else “odd” }).collect
+    rdd.map(x=&gt; {if (x==3) (1,x) else (2,x)}).collect()
+    rdd.countByKey()</p>
+
+<h3 id="references">References:</h3>
+<ol>
+  <li><a href="">https://github.com/neo4j-contrib/neo4j-spark-connector</a></li>
+</ol>

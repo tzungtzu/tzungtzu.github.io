@@ -1,0 +1,19 @@
+---
+layout: post
+title: OS X Test
+categories:
+- Technology
+tags:
+- OSX
+
+---
+The purpose of this article is to show that the blog can be deployed on OS X.
+
+ <!--more-->
+
+And this is a
+### photo.
+
+![test][image-1]
+
+[image-1]:	http://ww2.sinaimg.cn/mw690/88d7095ejw1er4fuyiv77j20fu0c0q5l.jpg

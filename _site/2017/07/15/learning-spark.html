@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>《Learning Spark》读书笔记-RDD</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>《Learning Spark》读书笔记-RDD </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-07-15">2017-07-15</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#spark" title="spark">#spark</a>&nbsp;
+    
+    <a href="/tags.html#rdd" title="rdd">#rdd</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>##RDD 编程</p>
+
+<p>弹性分布式数据集：元素的分布式集合。</p>
+
+<p>Spark 的工作：</p>
+<ol>
+  <li>创建新 RDD</li>
+  <li>对存在的 RDD 做变换</li>
+  <li>对RDD 调用操作计算出结果</li>
+</ol>
+
+<p>在底层， Spark 将包含在 RDD 中的数据自动分布到整个集群，并将你对其执行的操作并行化。</p>
+
+<p><!--more--></p>
+
+<p>###创建RDD</p>
+
+<p>用户可以用两种方式创建 RDD：【常见】通过加载一个外部数据集， 或者【简单】在驱动程序中分发一个对象集合（如 list 或 set）。</p>
+
+<p>最简单的创建 RDD 的方式就是将你程序中已存在的集合传递给 SparkContext 的 parallelize()方法，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; val rdd = sc.parallelize(Array(1, 2, 3, 4))
+</code></pre></div></div>
+
+<p>针对外部读取数据： path = “file:///home/ubuntu/data/spark-2.0.1-bin-hadoop2.6/LICENSE”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark默认是从hdfs读取文件，也可以指定sc.textFile("路径").在路径前面加上hdfs://表示从hdfs文件系统上读
+本地文件读取 sc.textFile("路径").在路径前面加上file:// 表示从本地文件系统读，如file:///home/user/spark/README.md
+</code></pre></div></div>
+
+<p>总是重新计算一个 RDD 的能力事实上就是为什么 RDD 被称为“弹性”的原因。</p>
+
+<p>###RDD操作</p>
+
+<ol>
+  <li>transfer 变换：操作得到一个新的RDD（变换创建RDD</li>
+  <li>action 动作： 返回一个结果到驱动程序或者写入到存储并开始计算的操作（对数据做什么</li>
+</ol>
+
+<p>大多数情况下，RDD 都不能 collect()到驱动程序，因为 RDD 一般都太大。这样 的话，通常是将所有数据输出到分布式存储系统中，如 HDFS 或 S3 等。你可以 用 saveAsTextFile()，saveAsSequenceFile()或者任何其他各种内置格式的动作来保 存 RDD 的内容。</p>
+
+<p>值得注意的是，每次我们调用一个新动作，整个 RDD 都必须“从头开始”计算。 要避免低效，用户可以像 44 页提到的“持久化（缓存）”那样持久化中间结果。</p>
+
+<p>###传递函数到Spark</p>
+
+<p>大多数的 Spark 的变换和一些动作都依赖于向 Spark 传入函数，这些函数被 Spark 用于计算数据。各个语言对于传递参数到 Spark 的机制有些细微的差异。</p>
+
+<p>在 Python 中，传递函数到 Spark 有三种方式。
+    1. 对于较短的函数，可以通过 lambda 表达式来传递，或者，也可以用顶级函数或者局部定 义的函数。</p>
+
+<p>###常见变换和动作</p>
+
+<ul>
+  <li>元素级的变换： map(), filter(), flatmap() 每个输入元素返回多个输出元素</li>
+  <li>伪集合操作：distinct(), union(RDD2),intersection(), substract()，cartesian(other)
+    <ul>
+      <li>distinct()很昂贵，因为它需要所有的数据通过网络进行 Shuffling 以确保唯一性。intersection, substract 也需要通过网络 shuffle 数据来识别公共元素。</li>
+    </ul>
+  </li>
+  <li>动作： reduce(), fold(), aggregate()[1][2], collect(), take(n)，top()
+    <ul>
+      <li>Map（映射）: 把洋葱、番茄、辣椒和大蒜切碎，是各自作用在这些物体上的一个Map操作。</li>
+      <li>Reduce（化简）:研磨机通常将map操作的蔬菜碎聚集在了一起。</li>
+      <li>take(n)返回 RDD 中的 n 个元素，试图最小化访问的分区的数目。所以它返回的
+是有偏差的集合。重要的是知道这操作不会以你期待的顺序返回数据。</li>
+    </ul>
+  </li>
+  <li>特殊类型的转换
+    <ul>
+      <li>有些函数只对某种类型的 RDD 可用，比如 mean()和 variance()对数值类型的 RDD
+可用，而 join()对键值对类型的 RDD 可用。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>###常用函数</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>spark-shell --packages neo4j-contrib:neo4j-spark-connector:2.0.0-M2,graphframes:graphframes:0.5.0-spark2.0-s_2.11
+
+a.groupBy(x =&gt; { if (x % 2 == 0) "even" else "odd" }).collect
+rdd.map(x=&gt; {if (x==3) (1,x) else (2,x)}).collect()
+rdd.countByKey()
+</code></pre></div></div>
+
+<p>###references</p>
+<ol>
+  <li>http://www.jianshu.com/p/15739e95a46e</li>
+  <li>http://m.blog.csdn.net/a1628864705/article/details/52757384</li>
+</ol>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

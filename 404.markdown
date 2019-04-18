@@ -1,0 +1,12 @@
+---
+title: 404
+layout: home
+
+---
+
+不是我忘做，就是你走错 :(
+
+Nothing found.
+
+But you still can have a [look around](https://tzungtzu.github.com).
+

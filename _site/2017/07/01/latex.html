@@ -1,0 +1,103 @@
+<h2 id="latex-用法">latex 用法</h2>
+
+<p>Greek Letters $\eta$ and $\mu$</p>
+
+<p>Fraction $\frac{a}{b}$</p>
+
+<p>Power $a^b$</p>
+
+<p><!--more--></p>
+
+<p>Subscript $a_b$</p>
+
+<p>Derivate $\frac{\partial y}{\partial t} $</p>
+
+<p>Vector $\vec{n}$</p>
+
+<p>Bold $\mathbf{n}$</p>
+
+<p>To time differential $\dot{F}$</p>
+
+<p>$\sum\limits_{i=1}^{n}$</p>
+
+<p>$x_{ij}^2  \sqrt[2]{x}$</p>
+
+<p>Matrix (lcr here means left, center or right for each column)</p>
+
+<p>Cases</p>
+
+<p>\begin{equation}f(x)=
+\begin{cases}
+\lambda exp(-\lambda), &amp;x\geq 0\cr 0, &amp;x\end{cases}
+\end{equation}</p>
+
+<p>直接在正文区的公式环境中输入下面的命令
+大于号敲\geq ，小于号敲\leq</p>
+
+<h3 id="latex-在-markdown-中的显示">Latex 在 Markdown 中的显示</h3>
+
+<p>如果通过 Sublime 的 OmniMarkupPreviewer 在网页中查看 Markdown 中的 Latex 公式， 只需要将在 OmniMarkupPreviewer 设置中的 “mathjax_enabled” 设置为 “true”。MathJax 就会在后端自动下载，并在网页中显示。</p>
+
+<p>如果需要在 Github Pages 中显示 Markdown 中的Latex 公式。同样适用 MathJax 公式显示 JS 引擎。</p>
+
+<p>JS 动态加载，解析速度有些慢。GitHub Pages 支持的 Kramdown 解析器默认使用该引擎解析渲染数学公式，使用时需要在页面引入 MathJax 库。公式书写语法参考 Math Blocks。
+但是即便不改换 Markdown 解析器，只要加载 MathJax 库，仍然可以正确显示公式，查阅 Jekyll 内置的 Kramdown 代码也没看到有相关的配置，只是简单的将文本中的公式区块解析成 HTML 标签 <script type="math/tex">，最终的公式渲染工作还是由 JS 实现。</script></p>
+
+<ol>
+  <li>在 _config.yml 中指定 Markdown 解析器</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Conversion</span>
+<span class="n">markdown</span><span class="p">:</span> <span class="n">kramdown</span>
+
+</code></pre></div></div>
+
+<ol>
+  <li>将下面代码加入 /layout/default.html 文件的 &lt;head&gt; 标签里</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+&lt;!-- mathjax config similar to math.stackexchange --&gt;
+
+&lt;script type="text/x-mathjax-config"&gt;
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+&lt;/script&gt;
+
+&lt;script type="text/x-mathjax-config"&gt;
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+&lt;/script&gt;
+
+&lt;script type="text/x-mathjax-config"&gt;
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i &lt; all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+&lt;/script&gt;
+
+&lt;script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;
+&lt;/script&gt;
+
+
+3. 最后在 Markdown 文件里写公式代码
+
+</code></pre></div></div>
+
+<p>References：</p>
+<ol>
+  <li>http://alfred-sun.github.io/blog/2014/12/05/github-pages/</li>
+  <li></li>
+</ol>
+

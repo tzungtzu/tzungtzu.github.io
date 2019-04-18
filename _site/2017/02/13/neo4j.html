@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>neo4j 常用命令</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>neo4j 常用命令 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-02-13">2017-02-13</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#neo4j" title="neo4j">#neo4j</a>&nbsp;
+    
+    <a href="/tags.html#NoSQL" title="NoSQL">#NoSQL</a>&nbsp;
+    
+    <a href="/tags.html#Cypher" title="Cypher">#Cypher</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>neo4j 是一种图数据库，图数据库着重于数据之间的关系，而非数据本身的信息。一个 RDBMS 被优化用于聚合数据。而 neo4j <strong>擅长于高度关联的数据</strong>。 优点是插入查询方便，搜索便利方法方便。缺点是超大节点的操作慢。
+ <!--more--></p>
+
+<h3 id="neo4j-模型建立">neo4j 模型建立</h3>
+
+<p>neo4j 中的概念： 节点，关系，属性，标签（针对节点），类型（针对关系）</p>
+
+<p>属性：重要的数据结构，不同于关系数据库模型的特征。节点和关系可以具有任意数量的属性，重要的key／value 。</p>
+
+<p>用标签可以扩展属性组，用于将节点划分到特定集合。</p>
+
+<p>模型中的元素可以是显式和隐式（是否直接作为节点），也可以是不变或者可变的。</p>
+
+<h3 id="neo4j-开发">neo4j 开发</h3>
+
+<ol>
+  <li>通过核心 Java API（系统级）</li>
+  <li>通过查询语言 Cypher（易读，结构强大）
+    <ol>
+      <li>
+        <p>查找起始节点<br />
+     START user = node(1)</p>
+      </li>
+      <li>
+        <p>跟随关系遍历图形<br />
+     MATCH (user)-<a href="">r: HAS_SEEN</a>-(movie)</p>
+      </li>
+      <li>
+        <p>返回最终节点。<br />
+     RETURN movie</p>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="cypher-基本句法"> Cypher 基本句法</h3>
+<p> </p>
+<ul>
+  <li>start - 查找图形中的起始节点</li>
+  <li>match - 匹配图形模式，可以定位子图形</li>
+  <li>where - 基于某种标准过滤数据</li>
+  <li>return - 返回感兴趣的结果</li>
+</ul>
+
+<ol>
+  <li>模式匹配</li>
+  <li>节点和关系连接</li>
+  <li>两个关系链接三个节点</li>
+  <li>
+    <p>多个模式同时匹配</p>
+  </li>
+  <li>查找节点
+        
+    <ul>
+      <li>通过id</li>
+      <li>通过INDEX  START john = n: User(name: “”)</li>
+      <li>查询多个起始节点   START john = n: User(name: “”)， jack = n: User(name: “”)</li>
+      <li>分页结果：
+ ORDER  结果排序
+ SKIP  进行分页
+ LIMIT  限定输出数量</li>
+    </ul>
+  </li>
+  <li>
+    <p>过滤数据
+ 可以通过正则表达式过滤
+ WHERE friend.mail = /@gmail.com/</p>
+  </li>
+  <li>返回结果
+ 返回属性，关系，路径以及分页结果</li>
+</ol>
+
+<ul>
+  <li>ORDER 排序</li>
+  <li>SKIP 跳到指定的页</li>
+  <li>LIMIT 限制输出数量</li>
+</ul>
+
+<ol>
+  <li>更新节点数据</li>
+</ol>
+
+<p>建立新节点和查找已有节点
+CREATE语句 设置节点对应的关系</p>
+
+<p>CREATE<br />
+    (<node1-label-name>:<node1-name>{<define-properties-list>})-
+	[<relationship-label-name>:<relationship-name>{<define-properties-list>}]
+	-&gt;(<node1-label-name>:<node1-name>{<define-properties-list>})
+RETURN <relationship-label-name></relationship-label-name></define-properties-list></node1-name></node1-label-name></define-properties-list></relationship-name></relationship-label-name></define-properties-list></node1-name></node1-label-name></p>
+
+<ol>
+  <li>
+    <p>删除数据
+DELETE 注意选择删除节点，关系</p>
+  </li>
+  <li>
+    <p>更新节点和关系属性
+SET john.yob = 1973</p>
+  </li>
+</ol>
+
+<p>8.删除属性
+start n= john
+delete n.name</p>
+
+<h3 id="高级-cypher">高级 Cypher</h3>
+
+<ol>
+  <li>数据聚合</li>
+</ol>
+
+<p>非聚合条目（节点），聚合函数（COUNT）</p>
+
+<ol>
+  <li>Cypher函数，
+p = (n)-&gt;<a href="">r: IS_FRIEND_OF*1..3</a>-()</li>
+</ol>
+
+<p>NODES(path)</p>
+
+<p>HAS(Entity.propertyName)</p>
+
+<p>ALL(),  NONE(), SINGLE()</p>
+
+<ol>
+  <li>链式查询一个查询的输出链接到另一个查询
+MATCH  n-<a href="">r</a>-()
+with TYPE(r) as TYPE, count(*) AS COUNT
+where COUNT &gt;1</li>
+</ol>
+
+<p>命名with 语句中的输出字段是强制性的。</p>
+
+<ul>
+  <li>shortestpath</li>
+  <li>allshortestpaths
+ extract( x in collection | expression ) 例如：</li>
+</ul>
+
+<h3 id="其他">其他</h3>
+
+<ol>
+  <li>
+    <p>从 CSV 文件导入到 Neo4j</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> LOAD CSV WITH HEADER FROM "url" AS row
+ MERGE (src:Character {name: row.Source})
+ MERGE (tgt:Character {name: row.Target})
+ MERGE (src)-[r:INTERACTS]-&gt;(tgt)
+ SET r.weight = toInt(row.Weight)
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>一次显示多个点
+     MATCH (n:uid) WHERE n.name IN [‘724972’,’704332’,’724747’] RETURN
+\3.</p>
+  </li>
+</ol>
+
+<h3 id="tips">Tips</h3>
+
+<ol>
+  <li>首次登陆必须修改密码，否则无法使用</li>
+  <li>neo4j 默认只能从本机访问，如果需要从外网访问，修改配置文件即可。</li>
+  <li>网页控制台（基于网页的接口）</li>
+  <li>添加 APOC 时，需要将jar文件放在default.graphdb下的plugins，重启即可。</li>
+  <li>步长为2的路径 ()-[*2]-()</li>
+  <li>match (a)-[*2]-&gt;(b) where a.name=‘Kaine‘ and not (a)-[*1]-&gt;(b) return a,b</li>
+  <li>()-[*..2]-()  步长不超过2</li>
+  <li>$match (n) where EXISTS(n.is_black) return n limit 5  查看属性是否存在<a href=""></a></li>
+</ol>
+
+<p>MAX  DESC</p>
+
+<p>新建一个node，包括变量名和label，并添加属性。</p>
+
+<h3 id="可以做以下尝试">可以做以下尝试：</h3>
+<p>使用Match和属性查找一个节点。</p>
+
+<p>使用Match和关系查找相关节点。</p>
+
+<p>使用Match进行推荐。</p>
+
+<p>使用Match寻找最多4跳以内的节点。</p>
+
+<p>使用Match寻找两节点之间的最短路径<a href="">。</a></p>
+
+<p><a href="">https://github.com/linonetwo/neo4j-tutorial-Chinese/blob/master/Chapters/1.md</a></p>
+
+<p><a href="http://www.infoq.com/cn/articles/graph-nosql-neo4j">http://www.infoq.com/cn/articles/graph-nosql-neo4j</a></p>
+
+<h3 id="refrences">refrences:</h3>
+<ol>
+  <li>http://www.blogs8.cn/posts/AtIte8c</li>
+  <li>http://neo4j.com/docs/developer-manual/current/cypher/syntax/patterns/</li>
+</ol>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

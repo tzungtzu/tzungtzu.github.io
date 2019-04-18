@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>Aria-Ng 配置</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>Aria-Ng 配置 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-12-25">2017-12-25</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#aria" title="aria">#aria</a>&nbsp;
+    
+    <a href="/tags.html#blog" title="blog">#blog</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>AriaNg是一个前端(HTML+JS静态)控制面板，不需要和 Aria2(后端/服务端)放在一个服务器或者设备中，你甚至可以只在服务器上面搭建Aria2后端，然后访问别人建好的 AriaNg前端面板，也可以远程操作Aria2后端！</p>
+
+<!--more-->
+
+<p>AriaNg是一个 HTML+JS 纯静态一个Aria2的Web面板，所以不需要编译任何环境。
+AriaNg的前端面板可以放在你本地电脑上面，下载解压后后直接用浏览器打开 index.html 文件就能使用了。</p>
+
+<p>AriaNg UI 更加好看，支持多 RPC，也支持手机页面。</p>
+
+<p>在自己的主页建立AriaNg 前端面板。只需要下载 release 添加到到网页就可以了。</p>
+
+<p>我的下载<a href="http://tzungtzu.github.io/AriaNg/#!/settings/rpc/set/https/tzungtzu-aria.ddns.to/443/jsonrpc/MGYxNGNiNjUxYzM1MDNmMGNkMDgwNzYyZjU1NzkyOTI=">链接</a>。通过这个链接可以直接下载电影到家里和路由器相连的移动硬盘。</p>
+
+<p>提供了API</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    /#!/settings/rpc/set/${protocol}/${rpcHost}/${rpcPort}/${rpcInterface}/${secret}
+    或
+    /#!/settings/rpc/set?protocol=${protocol}&amp;host=${rpcHost}&amp;port=${rpcPort}&amp;interface=${rpcInterface}&amp;secret=${secret}
+</code></pre></div></div>
+
+<p>${protocol} 为连接协议. 您可以使用 http, https, ws 或 wss.
+${rpcHost} 为 aria2 rpc 的主机. 您可以使用 IP 或域名.
+${rpcPort} 为 aria2 rpc 的端口.
+${rpcInterface} 为 aria2 rpc 的路径. 默认为 “jsonrpc”.
+${secret} 为使用 URL 安全的 base64 编码后的 rpc 密钥, 可选.</p>
+
+<h3 id="references">References:</h3>
+<ol>
+  <li><a href="http://ariang.mayswind.net/zh_Hans/command-api.html">AriaNg</a></li>
+</ol>
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

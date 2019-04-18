@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>贝叶斯思维</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>贝叶斯思维 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-08-12">2017-08-12</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Research" title="Research">Research</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#bayes" title="bayes">#bayes</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <table>
+  <tbody>
+    <tr>
+      <td>联合概率： $p(A and B)=p(A)*p(B</td>
+      <td>A)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$p(B_1</td>
+      <td>V)=\frac{p(B_1)p(V</td>
+      <td>B_1)}{p(V)}=\frac{p(B1)p(V</td>
+      <td>B_1)}{p(B_1)p(V</td>
+      <td>B_1)+p(B_1)p(V</td>
+      <td>B_2)+…}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>###历时诠释
+根据数据集 D 的内容变化更新假设概率 H 。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$p(H</td>
+      <td>D)=\frac{p(H)p(D</td>
+      <td>H)}{p(D)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>p(H) 先验概率，即在得到新数据前某一假设的概率。</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>p(H</td>
+          <td>D) 后验概率，即看到新数据后，我们要计算的该假设的概率。</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>p(D</td>
+          <td>H) <a href="https://www.wikiwand.com/zh-hk/%E4%BC%BC%E7%84%B6%E5%87%BD%E6%95%B0#/.E6.9C.80.E5.A4.A7.E4.BC.BC.E7.84.B6.E4.BC.B0.E8.AE.A1">似然度</a>，该假设下得到这一数据的概率。</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>p(D) 标准化常量，在任何假设下得到这一数据的概率。</li>
+</ul>
+
+<!--more-->
+
+<p>似然比是贝叶斯计算中最简单的部分；标准化常量比较棘手，它被定义为所有假设条件下这一数据出现的概率，但因为考虑的是最一般的情况，所以不容易确定这个常量在具体应用场合的现实意义。</p>
+
+<p>最常见的，可以指定一组假设集来简化。</p>
+
+<p>互斥：集合中最多一个假设为真。
+完备：集合中，至少一个为真，且集合包含了所有的假设。</p>
+
+<p>###估计</p>
+
+<p>前验概率为均匀分布</p>
+
+<p>前验概率为幂律分布</p>
+
+<p>置信区间：
+对于点估计，通常使用平均数、中位数或者最大似然值
+对于区间，我们通常给出两个计算值，使得位置量有905的可能落入这两个值之间。这些值定义了一个置信区间。</p>
+
+<p>积累分布函数：概率密度函数的积分</p>
+
+<p>###胜率</p>
+
+<p>胜率（odds）发生的概率和不发生概率的比值。
+赔率是 1/胜率</p>
+
+<p>如果有A，B两个假设，后验概率的比值为</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\frac{p(A</td>
+      <td>D)}{p(B</td>
+      <td>D)}=\frac{p(A)p(D</td>
+      <td>A)}{p(B)p(D</td>
+      <td>B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>如果 A,B 互斥且穷尽，那么 $p(B)=1-p(A)$，那么先验，后验的比率都可以做为胜率，所以就有了贝叶斯定理的胜率形式。</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$o(A</td>
+      <td>D)=o(A)\frac{p(D</td>
+      <td>A)}{p(D</td>
+      <td>B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>如果某一假设随着数据的出现呈现了更大的可能性，就可以说“数据支持了假设”。</p>
+
+<p>胜率模式变形：</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$\frac{o(A</td>
+      <td>D)}{o(A)}=\frac{p(D</td>
+      <td>A)}{p(D</td>
+      <td>B)}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>等式左边是后验胜率和鲜艳胜率的比值，右边是似然比，也称为<strong>贝叶斯因子</strong>。</p>
+
+<p>如果贝叶斯因子大于1，意味着数据更支持假设A。</p>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

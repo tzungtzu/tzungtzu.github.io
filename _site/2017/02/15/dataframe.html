@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>pandas 中 DataFrame 的分割和合并</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>pandas 中 DataFrame 的分割和合并 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-02-15">2017-02-15</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#python" title="python">#python</a>&nbsp;
+    
+    <a href="/tags.html#pandas" title="pandas">#pandas</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>pandas是基于Numpy构建的库。最主要的数据结构就是 Series 和 DataFrame。
+DataFrame 是 pandas 库中一个二维表格形的数据结构，含有一组有序的列，每列可以是不同的值类型（数值、字符串、布尔）。DataFrame 既有行索引也有列索引，可以看成由 Series 组成的字典（共用同一个索引）。</p>
+
+<p>在数据分析时经常用到 DataFrame 的分割和合并。总结一下自己遇到的情况。
+ <!--more--></p>
+
+<h3 id="取出一列">取出一列</h3>
+
+<p>通过类似字典标记的方式或属性的方式，可以将 DataFrame 的列获取为一个 Series。返回的 Series 拥有原 DataFrame 相同的索引，name 属性也相应设置好了。行索引字段是ix。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>frame ['year'] = frame.year  
+frame.ix['three']  #获取行数据
+</code></pre></div></div>
+
+<h3 id="删除一列">删除一列</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>frame.drop(['a','b']) #删除a，b行
+frame.drop([two],axis=1) #删除two 列。
+</code></pre></div></div>
+
+<h3 id="添加一列">添加一列</h3>
+
+<p>将列表和数组赋值给某个新列的时候，其长度必须和 DataFrame 的长度相匹配。如果赋值的是个 Series，就会精确匹配 DataFrame 的索引，所有的空位都会被填上缺失值。可以通过这个特性，修改 DataFrame 的格式。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Frame['newcolumn'] = series  #在Frame 创建新列
+</code></pre></div></div>
+
+<h3 id="改变一列的-type">改变一列的 type</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df[['a']]= df[['a']].apply(pd.to_numeric) #指定某列修改为int格式
+</code></pre></div></div>
+
+<p>如果直接进行全部改变，为了避免报错，可以将其他值变为 NaN
+	pd.to_numeric(s, errors =”coerce”)</p>
+
+<h3 id="修改索引">修改索引</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>obj = obj.reindex(['a','b','c','d','e'])
+frame = frame.reindex(index=[], cloumns=[])
+</code></pre></div></div>
+
+<h3 id="将列变成索引">将列变成索引</h3>
+
+<p>将某列作为列的索引，会生成一个新的 DataFrame
+	frame2 = frame.set_index([‘c’])</p>
+
+<h2 id="聚类">聚类</h2>
+
+<h3 id="统计a列中元素的重复次数">统计a列中元素的重复次数</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.groupby('a').size()
+</code></pre></div></div>
+
+<h3 id="统计a列中不同元素在b列的求和">统计a列中不同元素在b列的求和</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.groupby('a').sum()
+</code></pre></div></div>
+
+<h3 id="合并两个dataframe">合并两个dataframe</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pd.merge(b)
+</code></pre></div></div>
+
+<h3 id="将-index-转为-value">将 index 转为 value</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.reset_index()
+</code></pre></div></div>
+
+<h3 id="将dataframe-转为-list-of-listslist-of-dicts">将dataframe 转为 list of lists／list of dicts</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.values.tolist()
+</code></pre></div></div>
+
+<h3 id="dataframe-to-json">dataframe to json</h3>
+
+<p>df.to_json(orient=’split’)</p>
+
+<p>allowed values are: {‘split’,’records’,’index’,’columns’,’values’}</p>
+
+<p>###切片</p>
+
+<p>###数据筛选
+	a[a.proportion&gt;0.5]</p>
+
+<p>###df 设定某列为index (http://opus.konghy.cn/ipynb/two-diff-df-operation.html)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.set_index('column_name')
+</code></pre></div></div>
+
+<p>###df 相加（自动补0）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df.add(f2, fill_value=0)
+
+### 去除NaN
+df2.dropna() ###重新index
+df1.index = range(len(df1))   ###按某列去重
+DataFrame.drop_duplicates('column')
+</code></pre></div></div>
+
+<p>###去除某列 str 的左右
+	Series.str.rstrip(“ss”)去除右边空白</p>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

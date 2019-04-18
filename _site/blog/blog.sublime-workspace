@@ -1,0 +1,359 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Dr",
+				"Dropbox"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_posts/Technology/2017-08-24-vi-shortcut.md",
+			"settings":
+			{
+				"buffer_size": 1568,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pac",
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"ever",
+				"Evernote: Open Evernote Note"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"evernote",
+				"Evernote: Update Evernote Note"
+			],
+			[
+				"e ve",
+				"Evernote: Open Evernote Note"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 557.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/tzungtzu/Workspace/git/tzungtzu.github.io",
+		"/Users/tzungtzu/Workspace/git/tzungtzu.github.io/blog",
+		"/Users/tzungtzu/Workspace/git/tzungtzu.github.io/blog/_posts",
+		"/Users/tzungtzu/Workspace/git/tzungtzu.github.io/blog/_posts/Technology"
+	],
+	"file_history":
+	[
+		"/Users/tzungtzu/Documents/git/Instagram-Map/js/jquery-3.1.1.min.js",
+		"/Users/tzungtzu/Documents/git/Instagram-Map/js/bootstrap.min.js",
+		"/Users/tzungtzu/Documents/git/Instagram-Map/js/app.js",
+		"/Users/tzungtzu/Documents/git/Instagram-Map/index.html",
+		"/Users/tzungtzu/Workspace/code/js/test.html",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/age.html",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/age.mdown",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-24-vi-shortcut.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Diary/2011-06-21-character.markdown",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/index.html",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2016-08-08-statistic.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/07-05-shell-scripting.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-02-13-neo4j.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/1. 想获取自己like 的照片，好像不行，",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-23-instagram-api.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/07-13-changzi.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Reading/08-26-run-turtorial.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Reading/08-25-shit.md",
+		"/Users/tzungtzu/Downloads/likefordear-0.1/index.wsgi",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-22-spark-function.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-07-30-ssh-command.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2016-11-27-shortcut.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-24-vi-shortcut.md",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Default (OSX).sublime-keymap",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Bold and Italic Markers.tmPreferences",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-12-think-bayes.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-23-instagram-api.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-16-algrithm.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2012-12-15-github-blogging.markdown",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-07-29-mac-setting.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-07-15-learning-spark.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-07-mysql.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/_site/2017/05/04/graphx-in-action.html",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/4-10-hive.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2016-08-17-python-function.md",
+		"/Users/tzungtzu/Dropbox/App Backups/Mackup/Library/Application Support/Sublime Text 3/Packages/User/python2.sublime-build",
+		"/Users/tzungtzu/Workspace/x.py",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Travel/2017-07-03-tiger-leapping-gorge.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-02-15-dataframe.md",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/User/OmniMarkupPreviewer.sublime-settings",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/Evernote/Evernote.sublime-settings",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/OmniMarkupPreviewer/OmniMarkupPreviewer.sublime-settings",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-11-time-machine.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/07-23-iterm.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-11-ssh-socks5.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-07-01-latex.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-03-14-autohotkey.md",
+		"/Users/tzungtzu/Library/Application Support/Sublime Text 3/Packages/User/Evernote.sublime-settings",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/fintech.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/2017-08-07-macos-app-language.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/about.markdown",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-08-statistic.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/08-07-mysql.markdown",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/mac-setting.md",
+		"/Users/tzungtzu/Documents/git/tzungtzu.github.io/blog/_posts/Technology/networkx.ipynb",
+		"/Users/tzungtzu/Library/Mobile Documents/iCloud~run~surge/Documents/Main.conf"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"json",
+			"",
+			"2",
+			"",
+			"2017-08-12-think-bayes.md",
+			"2017-08-12-think",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"dea.cs.nthu.edu.tw",
+			"json",
+			"pic",
+			"super+alt+",
+			"super+alt+v",
+			"super",
+			"markdown",
+			"shell",
+			"she l l",
+			"linux",
+			"scala",
+			"//",
+			"tzungtzu",
+			"trek",
+			"^",
+			"快捷键",
+			"ctrl",
+			"c t r l",
+			"shortcuts",
+			"title",
+			"P",
+			"bayes",
+			"^",
+			" ",
+			"iterm",
+			"^",
+			"sql",
+			"^",
+			"sublime"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"p"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_posts/Technology/2017-08-24-vi-shortcut.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1568,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1477,
+								1477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MarkdownHighlighting/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 848.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 154.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "blog.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 274.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

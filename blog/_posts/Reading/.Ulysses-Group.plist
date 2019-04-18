@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>resolutionData</key>
+	<dict>
+		<key>sheetClusters</key>
+		<dict>
+			<key>2016-12-17-foreign-fruit.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>503650623.55923003</real>
+				<key>version</key>
+				<dict>
+					<key>ad7a521d1787e10fe551008a3c488c2a7fd0fd943bbc510aed82209a34ad4618</key>
+					<integer>17</integer>
+				</dict>
+			</dict>
+			<key>2016-12-6-veg-in-salad.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>503642335.82841802</real>
+				<key>version</key>
+				<dict>
+					<key>ad7a521d1787e10fe551008a3c488c2a7fd0fd943bbc510aed82209a34ad4618</key>
+					<integer>2</integer>
+				</dict>
+			</dict>
+			<key>2017-02-03-hacker-and-painter.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>507828505.99492198</real>
+				<key>version</key>
+				<dict>
+					<key>ad7a521d1787e10fe551008a3c488c2a7fd0fd943bbc510aed82209a34ad4618</key>
+					<integer>23</integer>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>2017-02-03-hacker-and-painter.md</string>
+		</array>
+		<array>
+			<string>2016-12-17-foreign-fruit.md</string>
+		</array>
+		<array>
+			<string>2016-12-6-veg-in-salad.md</string>
+		</array>
+	</array>
+	<key>storeFormatVersion</key>
+	<integer>1</integer>
+	<key>versioning</key>
+	<dict>
+		<key>sheetClusters</key>
+		<dict>
+			<key>ad7a521d1787e10fe551008a3c488c2a7fd0fd943bbc510aed82209a34ad4618</key>
+			<integer>24</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

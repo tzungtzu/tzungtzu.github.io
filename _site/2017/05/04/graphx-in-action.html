@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>Spark GraphX in Action 笔记</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>Spark GraphX in Action 笔记 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-05-04">2017-05-04</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Reading" title="Reading">Reading</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#Spark" title="Spark">#Spark</a>&nbsp;
+    
+    <a href="/tags.html#GraphX" title="GraphX">#GraphX</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>一、</p>
+
+<p>Hadoop的关键能力：</p>
+<ol>
+  <li>HDFS —— 分布式存储</li>
+  <li>MapReduce —— 分布式计算</li>
+</ol>
+
+<p>GraphX 用边RDD 和顶点RDD 来表示一个图。</p>
+
+<p>GraphX 内部是一个批处理系统，并没有融入Spark Streaming.</p>
+
+<p>图存储: 分布式文件存储与图数据库
+两全其美： 事务用图数据库，图处理用GraphX。</p>
+
+<p>图是模型化<strong>连接</strong>数据的自然和强大的使用方式</p>
+
+<p>Spark 也提供了M/R API（分布式计算）和分布式存储。与 Hadoop 不同，Spark 在集群的内存中保存数据，Hadoop 在集群的磁盘中存储。</p>
+
+<p>图数据的类型，图算法</p>
+
+<!--more-->
+
+<p>二、</p>
+
+<p>spark—shell 提醒变量 sc可以直接使用。启动时在上下文创建一个 org.apache.spark.SparkContext 对象的实例sc.</p>
+
+<p>Spark Shell 是 REPL（读取-求值-输出） 的一个实例。</p>
+
+<p>import org.apache.spark.graphx._ 
+scala 用 _ 作通配符， java 用 *。
+导入依赖，</p>
+
+<p>val graph = GraphLoader.edgeListFile(sc,”file:///home/ubuntu/data/users/zongwei/data/cit-HepTh.txt”)</p>
+
+<p>GraphLoader是 GraphX库里的对象， edgeListFile是GL里面的函数，用于加载边列表格式的文本文件，生成图</p>
+
+<p>graph.inDegrees.reduce((a,b)=&gt;if(a._2&gt;b._2) a else b)
+图对象调用 inDegrees 方法。得到一个VertexRDD
+reduce()函数，将每两条数据归并成一个结果。并且Scala的匿名函数可以将函数作为参数传递到其他函数(无需声明的内联函数的形式)</p>
+
+<p>val v = graph.pageRank(0.001).vertices
+v.reduce((a,b)=&gt;if(a._2&gt;b._2) a else b)</p>
+
+<p>三、</p>
+<ol>
+  <li>不变性</li>
+  <li>函数是一等公民</li>
+</ol>
+
+<p>轻松声明函数为内联的并且可以到处传递它们。</p>
+
+<ol>
+  <li>声明式迭代技术</li>
+</ol>
+
+<p>函数式编程不推荐使用for循环</p>
+
+<p>函数式编程的天然迭代方式是 map() 和递归</p>
+
+<p>map() 接受一个函数作为参数并将其应用于集合中的每一个元素。</p>
+
+<p>递归用来让函数调用自身</p>
+
+<p>map &amp; reduce
+map() 函数将传入的一个转换函数作为参数，把一个集合转变成另一个集合。
+reduce() 函数传入一个两两合并的聚集函数作为参数((Int,Int) =&gt; Int),把一个集合聚集为单个值。</p>
+
+<p>_+_是 (a,b)=&gt;a+b 的简写。
+Scala 特有的归并/聚集用法。</p>
+
+<p>Spark:</p>
+
+<p>scala 影响 Spark 最重要的设计概念 RDD。
+RDD是分布在集群多个节点上的数据集合。 RDD是不可变的（不能被修改或更新）。但是可以从已有RDD根据转换方法生成新的RDD。</p>
+
+<p>延迟求值</p>
+
+<p>RDD的API函数有两种： transformation（map()） 和 action（reduce()）. 
+前者：传入一个RDD，输出一个新的RDD。后者：除了前者的部分 
+reduce(func), collect(), count(), first(), take(n), saveAsTextFile(path), foreach(func), countByKey()</p>
+
+<p>DAG(有向无环图)对RDD的处理被隐藏起来以便于对外提供基础的功能。</p>
+
+<p>Spark 需要两个主要系统：分布式文件系统（HDFS）和集群管理系统（YARN）。
+Distributed Storage &amp; Cluster Manager</p>
+
+<p>SparkContext 对象是使用 Spark 的入口。</p>
+
+<p>常用RDD操作</p>
+<ol>
+  <li>m/r</li>
+  <li>键值对</li>
+  <li>zip()
+ 同时迭代两个集合，保存在RDD中。
+ zipWithIndex()，union()（未必是追加在后面）,distinct()</li>
+  <li>MLlib</li>
+</ol>
+
+<p>四、</p>
+
+<p>GraphX 的基础类</p>
+
+<p>Graph 是 GraphX 的基础类，它包含边RDD和顶点RDD，</p>
+
+<p>triplets() 方法根据VertexId 将顶点和边联合在一起。返回 EdgeTriplet
+[VD,ED] 类型的RDD，它是 Edge[ED] 的子类。</p>
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>python 抓取网页信息</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>python 抓取网页信息 </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2017-09-14">2017-09-14</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#spider" title="spider">#spider</a>&nbsp;
+    
+    <a href="/tags.html#python" title="python">#python</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>###登录信息</p>
+<ol>
+  <li>账号密码
+ 查看HTML源码，Google里可以使用CTRL+U查看，然后使用CTRL+F输入input看看有哪些字段值。
+ 通过 chrome 的 network 的 login 的 Form Data 获取需要的字段。
+ zhihu 还有一个隐藏字段 <code class="highlighter-rouge">_xsrf</code>，需要另外获取。简单的网站就是基本的字段。</li>
+</ol>
+
+<!--more-->
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>通过request.session的 post 方法 进行登录。 get 方法获取网页信息。
+
+    session = requests.session()
+    login_data = {'email':email,'passwd':passwd}
+    session.post('http://hk2.app.akulaku.com:60100/auth/login',data = login_data)
+    r = session.get('http://hk2.app.akulaku.com:60100/user')
+</code></pre></div></div>
+
+<ol>
+  <li>cookies</li>
+</ol>
+
+<p>###爬虫爬取</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    import bs4
+
+    soup = bs4.BeautifulSoup(r.text,"lxml")
+    r = session.get('url')
+    name = soup.select('.hidden-xs')[0].get_text()
+
+    注意最后，需要通过.get_text()方法转为中文字符。
+</code></pre></div></div>
+
+<p>###抓包</p>
+
+<p>###ConfigParser</p>
+
+<p>读取配置文件信息
+        cf = ConfigParser.ConfigParser()
+        cf.read(‘config.ini’)
+        email = cf.get(‘info’,’email’)</p>
+
+<h3 id="references">References:</h3>
+<ol>
+  <li>[python爬取需要登录的网站信息](http://python.jobbole.com/83588/）</li>
+  <li><a href="http://www.jianshu.com/p/9822e3f28f0a">抓包</a></li>
+  <li>http://www.csuldw.com/2016/11/05/2016-11-05-simulate-zhihu-login/</li>
+  <li><a href="https://github.com/lining0806/PythonSpiderNotes/blob/master/ZhihuSpider/ZhihuSpider.py">github</a></li>
+  <li><a href="http://www.lining0806.com/python%E5%85%A5%E9%97%A8%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B9%8B%E7%B2%BE%E5%8D%8E%E7%89%88/">spider</a></li>
+  <li><a href="http://wuchong.me/blog/2014/04/24/easy-web-scraping-with-python/">python 抓取网页</a></li>
+</ol>
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

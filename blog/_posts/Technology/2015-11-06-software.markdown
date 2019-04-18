@@ -1,0 +1,51 @@
+---
+layout: post
+title: Alfred 测评
+categories:
+- Technology
+tags:
+- OS X
+- Alfred
+- Spotlight
+
+
+
+---
+
+
+## Alfred
+
+Alfred 和 Spotlight 功能有重合部分
+
+博主表示要抛弃Spotlight投奔Alfred了。
+ <!--more-->
+
+<del>于我而言，Alfred有点重量级 但是却没有Spotlight的搜索分类功能和比如货币转换功能。还是喜欢Spotlight来开启应用</del>
+
+Geek喜欢键盘流，喜欢输入马上有响应。这些Alfred都能满足。
+于我而言，并不是每件事都需要让Alfred来做，但是很多事情会因为用键盘输入而方便很多,不用将手在触摸屏上点来点去，而短短几个快捷键就完成。
+
+不过Spotlight里自带的货币转换还是我用过的最好的，还没有找到合适的替代品。
+
+Alfred除了快速启动之外最重要的两个提升效率的功能就是自定义搜索和workflow。其中快速启动可以开启特定工作空间。
+
+
+> * 打开文件及其所在文件夹（Command+Enter）
+> * 热键打开Finder
+> * find 定位文件 in 文件中进行全文检索
+>  * 快速搜索，打开 豆瓣，taobao，google,zhihu
+> * 通过Contacts设置，快速发送Email, iMessage（只能通过匹配Apple ID）
+ <font color="red">
+> * 搜索mail instapaper evernote 存储的信息 （instapaper 无法全局搜索）
+> * 制作开机启动Script. 加快开机时间
+> * 制作工作空间启动Script. 
+> * 大小写转换
+> * Alfred for Fantastical
+> * Mail 快速查询
+> * App Store 搜索
+> * 快速发微博
+
+</font>
+
+
+其他的想到再写

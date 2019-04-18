@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>利用IFTTT将Evernote note同步到OmniFocus</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>利用IFTTT将Evernote note同步到OmniFocus </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2016-03-06">2016-03-06</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#Evernote" title="Evernote">#Evernote</a>&nbsp;
+    
+    <a href="/tags.html#OmniFocus" title="OmniFocus">#OmniFocus</a>&nbsp;
+    
+    <a href="/tags.html#IFTTT" title="IFTTT">#IFTTT</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <h2 id="background">Background</h2>
+
+<p>我是个爱折腾的人，看我的博客就知道。经常使用一些效率软件，写作软件。有时候想让笔记互相流通或是利用软件做一些自己想做的事情。比如想提醒自己以后查看某个Evernote，利用Alfred快速记录到Day One, 用Alfred快速查看OmniFocus Inbox等等。这些想法我都在脑洞大开的时候纪录在Evernote<a href="">文件</a>，偶尔看看自己是否能实现。今天例行整理Evernote时看到标题这条，正好趁着看综艺的时候把它做出来分享。</p>
+
+<p><!--more-->
+用过IFTTT的朋友都知道，自动化任务都是将需求分解，分别实现。而我们的任务就可以分解成：</p>
+<ol>
+  <li>读取（抓取）指定的Evernote note。</li>
+  <li>将note 发送给OmniFocus。</li>
+</ol>
+
+<h2 id="trigger">Trigger</h2>
+
+<p>第一步很简单，你可以自己手动选择，复制链接。也可以通过tag选取（这是IFTTT里我们选择的方式）</p>
+
+<h2 id="action">Action</h2>
+
+<p>对于第二步。通过<a href="https://support.omnigroup.com/doc-assets//OmniFocus-iOS/OmniFocus-iOS-v2.6.0.0/zh/EPUB/xhtml/16_extended.xhtml">OmniFocus拓展</a>我们知道，可以通过Mail Drop发送邮件或者Siri语音从第三方建立Inbox新项目。所以可以通过两个途径，发送项目到OmniFocus。两种方法都可以实现，我们来分别讲讲。</p>
+
+<ol>
+  <li>Mail Drop 的方法比较简单，利用IFTTT里的Gmail的Action，可以通过Gmail将指定元素发送到指定的邮箱。而指定邮箱我们使用OmniFocus的<strong>Mail Drop 地址</strong>。这个方法的好处是Note的标题作为Inbox item标题，同时将Note的内容一起发送到item的note中。</li>
+  <li>利用iOS自带功能的方法比较复杂。利用Siri语音第三方建立新项目其实是通过先用Siri建立Reminder的新项目，再将新项目发送到OmniFocus来实现的。所以利用IFTTT实际上是将note发送到iOS的Reminder，再开启OmniFocus的同步Reminder功能来同步item。特别需要注意的是，IFTTT设置的Reminder List必须和OmniFocus同步的List一致。这个方法有两个缺点：一是必须下载IFTTT手机客户端；二是麻烦，实际上是走了两条分支来实现功能。所以，一般情况下推荐使用第一种方法。</li>
+</ol>
+
+<h2 id="set-time">Set Time</h2>
+<p>关于第三方导入OmniFocus Inbox的项目都无法设置时间。不过通过Apple Reminder设置的待办事项同步到Inbox是自动同步时间的。所以可以通过Alfred快速写入到Fantastical来写入待办事项到Reminder再同步到Inbox。不过只能精确到日期。这也进一步说明，GTD步骤里，对Inbox内容整理是一个单独的动作。不可以省略。</p>
+
+<p><a target="_blank" href="https://ifttt.com/recipes/393556-send-evernote-note-to-omnifocus"> IFTTT Recipe: Send Evernote Note to OmniFocus </a></p>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

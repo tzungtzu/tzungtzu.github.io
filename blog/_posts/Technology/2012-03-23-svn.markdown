@@ -1,0 +1,28 @@
+---
+layout: post
+title: svn管理数据丢失问题的解决办法
+categories:
+- Technology
+tags:
+- SAE
+- blogging
+---
+
+在SAE上使用开发时，由于部署本地开发环境时删除以前建了文件目录，导致在commit时出现了如下错误：
+
+svn: 包含工作副本管理数据的目录“/home/tzungtzu/tzungtzuli/1/wp-content/plugins/picasa/.svn”丢失了
+
+这个问题在网上搜索一下发现很常见，但是解决方法都不是非常明确。
+
+其实可以很简单地解决这个问题：
+在管理员权限下
+
+# sudo rm -r picasa/
+# svn remove picasa
+D picasa
+svn: “picasa” 不存在
+# sudo cp -r /path/to/fold/ picasa/
+# svn add picasa/
+# svn commit -m”add picasa/”
+
+也就是先在SVN中删除这个目录，然后重新添加这个目录。这个时候再commit就不会出错了。

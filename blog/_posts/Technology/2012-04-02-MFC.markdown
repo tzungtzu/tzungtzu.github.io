@@ -1,0 +1,98 @@
+---
+layout: post
+title: MFC中内存DC绘图的画法
+categories:
+- Research
+tags:
+- 毕业设计
+- MFC
+- C++
+- 内存DC绘图
+---
+
+昨晚终于把实验平台我的部分初步完成了，主要内容是USRP感知环境频谱数据(linux环境)通过afxsocket传给windows下服务器。本以为解决从python的string到VC的Cstring转换和数据包解析问题就行了。但实际完成时在实时更新绘图数据卡了一下。废话少说，现在说下问题需求和解决办法。
+
+需求：server接收到数据包，将需要的频谱信息转到整形数组array[16]，由于实时性需求array[16]五秒更新一次，要保证画的频谱折线图能够显示更新。
+
+问题：最初采用OnPaint函数绘图，基本上是体力活，从坐标轴到网格每一笔都要写下来。在刷新数据的时候出现问题，使用重绘函数刷新无法用计时器控制。需要跟客户端发送的频谱一样。
+
+采用内存DC绘图相当于创建一个内存DC,将图形先绘制到这个DC上面,之后通过BitBlt这个函数通过位拷贝的方式将内存DC的数据拷贝到图形设备上去,由于内存拷贝的速度很快,所以我们很大程度改进了绘图效率(这种技术叫做双缓冲)。
+
+具体方法如下：
+1. 在对话框添加一个picture control控件，设置ID为IDC\_COORD，移动到合适位置。
+
+在项目的类中添加如下变量：
+
+CRect rect;                  // 存储绘图控件的绘图区域
+CDC \*pDC;                  // 控件的屏幕绘图设备指针
+CDC memDC;              // 内存绘图设备
+CBitmap memBitmap;  // 用于内存绘图的位图
+CBitmap\* pOldBmp;    // 备份旧的位图指针
+CWnd\* pWnd;             // 绘图控件的指针
+
+ 
+
+2. 用ClassWizard在项目中添加OnInitDialog()消息响应函数，实现绘图需要变量的初始化工作，具体代码如下：
+
+pWnd = GetDlgItem(IDC\_COORD); // 获得对话框上的picture的窗口句柄
+pWnd->GetClientRect(&rect);         // 获取绘制坐标的文本框
+
+pDC = pWnd->GetDC();                 // 获得对话框上的picture的设备指针
+pOldBmp = NULL;                           // 将旧的位图指针置空
+
+Drawwave（&mem）                 // 创建内存绘图设备，使内存位图的DC与控件的DC关联
+memDC.CreateCompatibleDC(pDC);
+memBitmap.CreateCompatibleBitmap(pDC,rect.right,rect.bottom);
+pOldBmp = memDC.SelectObject(&memBitmap);
+
+ 
+
+第三步：在Dlg类中添加绘图函数。
+
+void CXv001Dlg::DrawWave(CDC \*pDC)
+{
+
+memDC.Rectangle(rect.left,rect.top,rect.right,rect.bottom);
+/\*
+
+此处可以写你要画的图，可以配上坐标。
+
+\*/
+
+}
+
+ 
+
+4. 在Dlg类中添加OnTimer(),OnPaint()和OnClose的消息响应函数。
+
+在OnInitDialog()函数总添加如下代码
+
+SetTimer(1,10,NULL);          // 启动定时器
+
+在OnTimer()函数中添加
+
+DrawWave(&memDC);         // 在位图中画图片
+OnPaint();                                 // 使屏幕刷新
+
+ 
+
+在OnPaint()函数中添加如下代码，实现将生成的图片拷贝到屏幕上，完成整个绘图的工作。
+
+pDC-\>BitBlt(rect.left,rect.top,rect.right,rect.bottom,&memDC,0,0,SRCCOPY);
+
+最后：在OnClose()函数中，别忘了销毁绘图及位图设备的指针。
+
+memDC.SelectObject(pOldBmp);
+memDC.DeleteDC();
+memBitmap.DeleteObject();
+
+ 
+
+我的效果图如下：
+[图]
+
+###### \#我是无聊的分界线
+
+ 
+
+虽然感觉界面寒碜了点，但是就准备拿它做我毕设的界面了。剩下的就是算法问题了\~ 快点写完旅游去= =

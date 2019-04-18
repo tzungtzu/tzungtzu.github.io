@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="tzungtzu" />
+    
+    <title>OmniFocus测评（二）</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="setImpl" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+<!--     <link rel="styesheet" href="/media/css/folder/popup.css"> -->
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script>
+    <script src="http://jerry-cdn.b0.upaiyun.com/hit-kounter/hit-kounter-lc-0.2.0.js"></script>
+
+
+  <!-- mathjax config similar to math.stackexchange -->  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+          }
+        });
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+        });
+    </script>
+
+    <script type="text/javascript"
+       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+	  
+
+  </head>
+  <body>
+<!--   <script src="/media/js/folder/jquery.popup.min.js"></script> -->
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="zongwei" class="" href="/">TZUNGTZU</a></h1>
+            <nav>
+			  <span><a title="BLOG" class="" href="/blog/">BLOG</a></span>
+              <span><a title="文章归档" class="" href="/archive.html">Archive</a></span>
+			  <!-- 
+              <span><a title="文章分类" class="" href="/category.html">Category</a></span>
+			   -->
+              <span><a title="标签" class="" href="/tags.html">Tags</a></span>
+              <span><a title="链接" class="" href="/links.html">Links</a></span>              
+              <span><a title="相册" class="" href="https://www.instagram.com/tzungtzu/">Gallery</a></span>
+              <span><a title="关于" class="" href="/about.html">About</a></span>
+              <span><a title="subscribe me" class="" href="/atom.xml">Feed</a></span>
+              
+            </nav>
+          </div>
+        </header>
+		
+		
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>OmniFocus测评（二） </h2>
+  </section>
+  <section class="meta">
+	<span class="time">
+    <time datetime="2015-12-21">2015-12-21</time>
+  </span>
+  
+
+<span class="categories">
+	Published in categories
+  
+  <a href="/category.html#blog" title="blog">blog</a>&nbsp;
+  
+  <a href="/category.html#Technology" title="Technology">Technology</a>&nbsp;
+  
+</span>
+
+
+  
+  <span class="tags">
+   tagged with 
+    
+    <a href="/tags.html#OmniFocus" title="OmniFocus">#OmniFocus</a>&nbsp;
+    
+    <a href="/tags.html#GTD" title="GTD">#GTD</a>&nbsp;
+    
+    <a href="/tags.html#OS X" title="OS X">#OS X</a>&nbsp;
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>（上文：要做好GTD，就要学会使用各项Perspective。接下来，我们来分析各Perspective不同的含义。）</p>
+
+<p><br /></p>
+
+<h3 id="inbox-收集箱和待办事项">Inbox （收集箱和待办事项）</h3>
+
+<p>Inbox是一个事项收集器。（在这里说一句题外话，对于任何Inbox，都应该趋向于一个清空的状态，即Email阅读完归档或删除，这样可以知道自己完成事情的进度，避免拖延症。否则越积越多，会引发负面情绪）大多数临时，零碎首先被记录在这里。它的用处很简单：</p>
+
+<ol>
+  <li>记录无关Projects, Context的临时性事物，单一而没有其他步骤。完成以后直接勾选即可。</li>
+  <li>临时记录没有来得及分类的事物。等完成以后可以直接搜索标记到项目，时间，flag等。</li>
+  <li>通过command+return 直接简历新项目。</li>
+</ol>
+
+<!--more-->
+<p><br /></p>
+
+<h3 id="projects-计划或多个步骤的事物">Projects （计划或多个步骤的事物）</h3>
+
+<p>多个Action协调，配合完成的事项，用来整理到Projects。这些事项有如下特点。</p>
+
+<ol>
+  <li>周期一般比较长，所以会有进行中这种状态。</li>
+  <li>原则上「项目」中<strong>不允许出现空的项目</strong>，不要和文件夹的使用混淆，文件夹只用来分类，项目描述的是要去完成的事情。</li>
+  <li>View（查看）中，「顺序」和「平行」类型的项目按「下一个动作」筛选时，「顺序」和「平行」类型的项目只显示子项中的第一个；按「可用」筛选时「顺序」类只显示子项第一个，而「平行」类项目都显示。</li>
+  <li>项目和其包含的事项之间是「父子」关系，即便子项没有完成，改变项目的状态为「已完成」后子项也会随之关闭。时间点的设置上，起始和截止时间_一般在子项上_，父项上设置Review（回顾）的时间点。子项能转成独立的项目，子项下还可以包含其他子项，这些灵活的层级操作可以全部通过拖拽完成。</li>
+  <li>在分类里通过option+return 生成同级文件夹</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="context按人员场所和输出对象来管理事务">Context（按人员、场所和输出对象来管理事务）</h3>
+
+<p>「Projects」以清晰描述事务来组织和管理的模式不同，「Contexts」侧重的是_最终的对象，由谁来完成、通过什么手段来完成、在什么场所里完成_。 如果说Project是以事为主，Contexts就是以环境为主 ，两者结合从而能更全面让我们来检索和添加事项。</p>
+
+<ol>
+  <li>有对人的、也有对部门的、还有面向解决途径的。落实对人，对各种的事情。</li>
+  <li>在「Projects」中记录和罗列事项的时候，很多时候并不是很清楚事项最后对环境和人的依赖性和权重有多高，添加「Contexts」上下文以后，基于人、地点、对象这种方式的归集，很清晰就能看到分担到每个对象上事务的多少，反过来反而可以平衡事务的安排是否合理，并在日程和时间点上进行协调和统筹。</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="forecast显示日历和未来事项">Forecast（显示日历和未来事项）</h3>
+
+<ol>
+  <li>Forecast（预测）则是基于时间点来创建和查看事项，在用法上和日历很像。</li>
+  <li>为了避免形成拖延的习惯，时间点的设置上建议以Defer Until为主，少用Due，要养成习惯在时间截至之前完成工作，而不是将Due变成提醒，在Due 截止时间点到了以后才开始。</li>
+  <li>_添加_事务我倾向于以「Inbox」和「Projects」为主，_日程事务_以「Forecast」为入口，在_清扫事务和回顾_上更喜欢在「Contexts」里浏览，按分配到的人和对象来清理当前事务。</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="flag-标记优先考虑的事物">Flag （标记，优先考虑的事物)</h3>
+
+<ol>
+  <li>OmniFocus 的透视逻辑中，如果新建的事项动作（Action）不选任何的项目、上下文分类，那么你需要在「Inbox」里才能看到，添加了项目分类的 Action和项目自身 你会在「Projects」里看到，「Contexts」视图中主要显示的是Action，看不到项目（平行、顺序类型项目的Action为空时才会显示在no contexts中），通过给项目或事项（Action）添加「旗标」，它们将都可以显示在「Flagged」视图中。</li>
+  <li>显示优先级，标记的既可以是一个独立Action也可以是一个Project的Action</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="review回顾">Review（回顾）</h3>
+
+<ol>
+  <li>回顾处于整个GTD时间管理模型（收集 – 处理 – 组织 – 执行 – 回顾）的末端，也是承先启后，反思改进的重要节点。</li>
+  <li>不针对Action 只针对Projects。可以结合实际情况进行调整或关闭已经没有推动意义的项目。</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="tips-omnifocus">Tips <strong>OmniFocus</strong></h2>
+
+<ol>
+  <li>可以设置新建Action的快捷键。我设为『control+command+o』</li>
+  <li>点击事项左下角的附件图标添加Note时，直接拖拽桌面的文件到这里可以创建快捷方式，按住option再拖拽会将内容嵌入到事项（通常拖拽个图片什么的做补充说明不错）</li>
+  <li>由其他应用（如邮件、Safari） 选中文本右键可以快速创建新的事项。</li>
+  <li>可以定制自己的Perspective。</li>
+  <li>针对每个项目（Project）或事项（Action）除了常设的开始时间和结束时间以外，还可以添加预计花费的时间（Estimated Time），对于短期任务这种设置能进一步量化你的时间安排。</li>
+</ol>
+
+<hr />
+
+<p>真正了解并使用GTD的人，会喜欢他并且会自我升级并且延伸到生活和工作的方方面面，但是这个概念从了解到融入到自己的生活中，确实一个漫长的过程。而我很享受这种融入的感觉。</p>
+
+<blockquote>
+  <p>天才之所以为天才,是因为他们不需要别人去干就会大步向前，他们永远知道自己要做什么。对他们来说，勤奋学习工作，客服一个个苦难是本能。而他们的素质其实都是来自他们的生理。 他们不需要这些所谓的工具和鸡汤。</p>
+</blockquote>
+
+<blockquote>
+  <p>说起来，使用工具并不能提升我们的上限，却能榨干我们的”机能”。努力并不能让我们实现理想，起码会让我们不后悔。在改变中，我们最好还是绷紧全身的肌肉，等待命运会交给我们什么。</p>
+</blockquote>
+
+<p>很喜欢kikou的这段话。故分享在最后。</p>
+
+<hr />
+<p>参考资料：</p>
+
+<ol>
+  <li><a href="http://irising.me/2014/10/17836/"> OmniFocus 2 for Mac 的使用指南</a></li>
+  <li><a href="http://sspai.com/29233">给 OmniFocus 新手进阶的十条建议</a></li>
+  <li><a href="http://chuansong.me/n/565635">从效能软件Omnifocus开始</a></li>
+  <li><a href="http://kikou.lofter.com/post/268c8a_85c7599">无法达到的彼岸</a></li>
+</ol>
+
+
+  </section>
+  <section class="comment">
+<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+       
+         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'tzungtzu'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        </script>
+  </section> 
+</article>
+
+        </div>
+
+
+
+		
+        <footer>&copy; 2011 ~ 2017 ♥ tzungtzu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext iv">sext iv</a> | 🕶️ <span data-hk-page="current"> - </span> hits<span class="pause"> | </span>
+        <div><span></span></div>
+        </footer>
+      </div> <!-- main -->
+      
+<!--       站长统计cnzz -->
+      <script src="https://s11.cnzz.com/z_stat.php?id=1260991989&web_id=1260991989" language="JavaScript"></script>
+      <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260991989'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260991989' type='text/javascript'%3E%3C/script%3E"));</script>
+  </body>
+</html>

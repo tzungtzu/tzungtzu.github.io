@@ -1,6 +1,13 @@
+---
+layout: post
+title: Spark-GraphX
+categories: 
+- Technologyy
+tags:
+- spark
 
+---
 
-Spark-GraphX
 
 
 ## neo4j-spark-connector
@@ -17,6 +24,7 @@ spark-defaults.conf 的 内网IP
     val rdd = neo.cypher("MATCH (n:uid) RETURN count(n) as id ").loadRowRdd
     rdd.collect()
 
+<!--more-->
 
 ###算法
     a.groupBy(x => { if (x % 2 == 0) "even" else "odd" }).collect

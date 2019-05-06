@@ -140,6 +140,12 @@ permission error 解决方法： 修改owner 为 tzungtzu
 2. softlink for macSync Folders
 3. Alfred Sync folder
 
+### 新机器几个需要配置的地方
+
+1. tap to click  
+2. three finger drag （trackpad）
+3. Install and set zsh preset #否则只有zsh的配置文件，iterm无法正常改变。
+
 
 ### References:
 1. [小土刀][3]()

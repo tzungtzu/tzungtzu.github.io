@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>蜂窝热力图 - 通过事件获取数据</title>
+	<link rel="stylesheet" href="//a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+	<style>
+		html,
+		body,
+		#container {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.info span {
+			min-width: 300px;
+			max-width: 400px;
+			color: #1b91ff;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container"></div>
+	<div class="info" style="min-width: 350px; mex-width: 450px;">
+		<h4>热力事件回调参数</h4>
+		<p>当前热力值：<span id="val">--</span></p>
+		<p>当前包含的数据索引：<span id="indexes" style="display: block; overflow: scroll;">--</span></p>
+		<p>当前包含的数据数量：<span id="indexes-num">--</span></p>
+		<p>热力中心点坐标：
+			<span id="lng-lat">--</span>
+		</p>
+	</div>
+	<script src="//webapi.amap.com/maps?v=1.4.14&key=e3c23244fa7d4a21a4e31c2db69ee6d6"></script>
+	<script src="//webapi.amap.com/loca?v=1.3.0&key=e3c23244fa7d4a21a4e31c2db69ee6d6"></script>
+	<script src="//a.amap.com/Loca/static/dist/jquery.min.js"></script>
+	<script>
+
+		var map = new AMap.Map('container', {
+			mapStyle: 'amap://styles/twilight',
+			zoom: 9,
+			center: [120.198254, 36.465551],
+			zooms: [4, 12]
+		});
+
+		$.get('qingdao_500m.tsv', function (heatmapData) {
+			var layer = new Loca.HexagonLayer({
+				map: map,
+				fitView: true,
+				eventSupport: true,
+			});
+
+			layer.setData(heatmapData, {
+				lnglat: function (obj) {
+					var val = obj.value;
+					return [val['lng'], val['lat']]
+				},
+				value: 'count',
+				type: 'tsv'
+			});
+
+			layer.setOptions({
+				unit: 'meter',
+				mode: 'count',
+				style: {
+					color: ['#ecda9a', '#efc47e', '#f3ad6a', '#f7945d', '#f97b57', '#f66356', '#ee4d5a'],
+					radius: 2000,
+					opacity: 0.85,
+					gap: 300,
+					height: [0, 100000]
+				}
+			});
+
+			layer.on('mousemove', function (ev) {
+				updateInfo(ev);
+			});
+
+			layer.render();
+
+			function updateInfo(ev) {
+				var $val = document.getElementById('val');
+				var $idx = document.getElementById('indexes');
+				var $num = document.getElementById('indexes-num');
+				var $lngLat = document.getElementById('lng-lat');
+
+				$val.innerText = ev.value;
+				$idx.innerText = ev.indexes.join(', ');
+				$num.innerText = ev.indexes.length;
+				$lngLat.innerText = ev.lngLat.valueOf();
+			}
+		});
+
+	</script>
+</body>
+
+</html>

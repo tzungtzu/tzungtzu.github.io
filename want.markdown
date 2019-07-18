@@ -34,6 +34,7 @@ fjallraven tailand trail/ indonesia discovery
 [想读的书][1]
 
 
+
 ### Equipments of Mine
 
 #### Digital 
@@ -56,18 +57,36 @@ fjallraven tailand trail/ indonesia discovery
 
 #### Trekking 户外装备
 
-Osprey Kestrel 38 轻装背包
-Osprey Aether 70 重装备包
 ASTA Yunque 2 side silnylon 3 seasons ultra light tent 静星云雀帐篷
 The North Face Aleutian Sleeping Bag: 40 Degree Synthetic - Monarch Orange /Zinc 睡袋
+Osprey Aether 70 重装备包
+Osprey Kestrel 38 轻装背包
+
 La Sportiva Halite GTX 高帮徒步鞋
 <del>La Sportiva Boulder X GTX 接近鞋</del>
 La Sportiva Akasha 越野跑鞋
 Adidas Terrex Swift R2 GTX 低帮徒步鞋
+Smartwool PHD hiking socks
+Smartwool PHD running socks
+
 Black Diamond Men's Dawn Patrol LT Jacket 软壳
+Noname Down Jacket
+Quechua Fleece Forclaz 50
+Patagonia Capilene Midweight Crew LS 保暖内衣
+Marmot Men's Windridge LS Top Small
+Outdoor Men's Research Echo Hoody Mediem
+Outdoor Men's Research Echo Tee Short Sleeve Small
+
 Outdoor Research Men's Ferrosi Crag Pant 攀岩裤
-Patagonia Capilene Midweight Crew 保暖内衣
-Smartwool 徒步+跑步袜
+Arcteryx Phase SL Bottom
+Smartwool Merino 150 Boxer
+Exofficio Give-N-Go Boxer
+
+Firemaple 
+Quechua Water
+
+
+
 
 
 ### shopping list 欲购清单 (谁知道什么时候会买呢)
@@ -79,7 +98,7 @@ Smartwool 徒步+跑步袜
 
 要给爹妈买的东西：<del>电动牙刷，手持吸尘器Black & Decker（买了dyson）</del>，夹蒜器（action）
 
-2017：bose soundsport wireless,群晖 DS218+ , <del>NS</del>, 湿厕纸
+2017：群晖 DS218+ , <del>Nintendo Switch, Bose soundsport wireless, 湿厕纸</del>
 
 2017.11: Osprey Packs Transporter 40 Expedition Duffel, Osprey Daylite
 

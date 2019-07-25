@@ -100,7 +100,7 @@ Quechua Water
 
 2017：群晖 DS218+ , <del>Nintendo Switch, Bose soundsport wireless, 湿厕纸</del>
 
-2017.11: Osprey Packs Transporter 40 Expedition Duffel, Osprey Daylite
+2017.11: Osprey Packs Transporter 40 Expedition Duffel, <del>Osprey Daylite (2019.3)</del>
 
 2018.9: lego 10255，lego delft[9]
 

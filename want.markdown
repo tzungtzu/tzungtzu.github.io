@@ -76,6 +76,7 @@ Patagonia Capilene Midweight Crew LS 保暖内衣
 Marmot Men's Windridge LS Top Small
 Outdoor Men's Research Echo Hoody Mediem
 Outdoor Men's Research Echo Tee Short Sleeve Small
+Camino de Santiago x BUFF
 
 Outdoor Research Men's Ferrosi Crag Pant 攀岩裤
 Arcteryx Phase SL Bottom
@@ -110,7 +111,7 @@ Quechua Water
 
 19.1 Smartwool PhD Light Base Layer Hoodie
 
-
+2019.8  智能门锁，智能马桶，群晖nas
 
 
 [https://www.douban.com/doulist/45368167/][8]

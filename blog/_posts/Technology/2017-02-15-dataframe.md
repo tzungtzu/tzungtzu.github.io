@@ -122,6 +122,10 @@ my_list = [str(my_list[0])]
 ## list 2 dataframe
 
 
+## lambda
+
+df_company['latlng'] = df_company[['latlng']].apply(lambda r: r.str.strip('|').str.split('|'))
+
 [unicode - Python string prints as [u'String'] - Stack Overflow](https://stackoverflow.com/questions/599625/python-string-prints-as-ustring)
 
 

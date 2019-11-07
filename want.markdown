@@ -57,12 +57,14 @@ fjallraven tailand trail/ indonesia discovery
 
 #### Trekking 户外装备
 
-ASTA Yunque 2 side silnylon 3 seasons ultra light tent 静星云雀帐篷
+ASTA Yunque 2 side silnylon 3 seasons ultra light tent [静星云雀帐篷](http://www.8264.com/wenzhang/4304868.html) 1650g
+[Fjällräven Abisko Shape 3](https://www.fjallraven.co.uk/fjallraven-unisex-abisko-shape-3-sand-f53203/) 2560g
 The North Face Aleutian Sleeping Bag: 40 Degree Synthetic - Monarch Orange /Zinc 睡袋
 Osprey Aether 70 重装备包
 Osprey Kestrel 38 轻装背包
 
-La Sportiva Halite GTX 高帮徒步鞋
+La Sportiva Halite GTX (from 2014) 高帮徒步鞋
+Scarpa Kailash Trek GTX (from 2019)
 <del>La Sportiva Boulder X GTX 接近鞋</del>
 La Sportiva Akasha 越野跑鞋
 Adidas Terrex Swift R2 GTX 低帮徒步鞋

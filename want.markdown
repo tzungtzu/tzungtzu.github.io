@@ -86,6 +86,7 @@ Smartwool Merino 150 Boxer
 Exofficio Give-N-Go Boxer
 
 Firemaple 
+PRIMUS LITE+ Stove
 Quechua Water
 
 
@@ -113,7 +114,7 @@ Quechua Water
 
 19.1 Smartwool PhD Light Base Layer Hoodie
 
-2019.8  智能门锁，智能马桶，群晖nas
+2019.8  智能门锁，智能马桶，<del>群晖nas</del>
 
 
 [https://www.douban.com/doulist/45368167/][8]

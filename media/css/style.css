@@ -21,7 +21,7 @@ a {
 
 body {
   font-size: 14px;
-  font-family: "telexregular","Overlock","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: 'Noto Sans SC', 'Roboto',"telexregular","Overlock","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   font-weight:normal;
   color: #555555;
   background-image: url("/media/css/bg.png"); }
@@ -52,13 +52,13 @@ ol, ul {
   #header h1 {
     display: inline-block;
     margin-right: 1em;
-    font-family: "Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    font-family: 'Noto Sans SC', 'Roboto',"Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
   #header nav {
     display: inline-block; }
     #header nav a {
       margin: 0 .5em;
       display: inline-block;
-      font-family: "Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-family: 'Noto Sans SC', 'Roboto',"Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       text-transform: uppercase; }
 
 #content {

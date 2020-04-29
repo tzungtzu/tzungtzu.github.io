@@ -59,11 +59,11 @@ fjallraven tailand trail/ indonesia discovery
 
 #sleep
 
-ASTA Yunque 2 side silnylon 3 seasons ultra light tent [静星云雀帐篷](http://www.8264.com/wenzhang/4304868.html) 1650g
-[Fjällräven Abisko Shape 3](https://www.fjallraven.co.uk/fjallraven-unisex-abisko-shape-3-sand-f53203/) 2560g
-The North Face Aleutian Sleeping Bag: 40 Degree Synthetic - Monarch Orange /Zinc 睡袋
-Osprey Aether 70 重装备包
-Osprey Kestrel 38 轻装背包
+1. ASTA Yunque 2 side silnylon 3 seasons ultra light tent [静星云雀帐篷](http://www.8264.com/wenzhang/4304868.html) 1650g
+2. [Fjällräven Abisko Shape 3](https://www.fjallraven.co.uk/fjallraven-unisex-abisko-shape-3-sand-f53203/) 2560g
+3. The North Face Aleutian Sleeping Bag: 40 Degree Synthetic - Monarch Orange /Zinc 睡袋
+4. Osprey Aether 70 重装备包
+5. Osprey Kestrel 38 轻装背包
 
 #foot
 1. La Sportiva Halite GTX (from 2014) 高帮徒步鞋
@@ -75,23 +75,22 @@ Osprey Kestrel 38 轻装背包
 6. Smartwool PHD running socks
 
 #cloth
-Black Diamond Men's Dawn Patrol LT Jacket 软壳
-Noname Down Jacket
-Quechua Fleece Forclaz 50
-Patagonia Capilene Midweight Crew LS 保暖内衣
-Marmot Men's Windridge LS Top Small
-Outdoor Men's Research Echo Hoody Mediem
-Outdoor Men's Research Echo Tee Short Sleeve Small
-Camino de Santiago x BUFF
+1. Black Diamond Men's Dawn Patrol LT Jacket 软壳
+2. Noname Down Jacket
+3. Quechua Fleece Forclaz 50
+4. Patagonia Capilene Midweight Crew LS 保暖内衣
+5. Marmot Men's Windridge LS Top Small
+6. Outdoor Men's Research Echo Hoody Mediem
+7. Outdoor Men's Research Echo Tee Short Sleeve Small
+8. Camino de Santiago x BUFF
+9. Outdoor Research Men's Ferrosi Crag Pant 攀岩裤
+10. Arcteryx Phase SL Bottom
+11. Smartwool Merino 150 Boxer
+12. Exofficio Give-N-Go Boxer
 
-Outdoor Research Men's Ferrosi Crag Pant 攀岩裤
-Arcteryx Phase SL Bottom
-Smartwool Merino 150 Boxer
-Exofficio Give-N-Go Boxer
-
-Firemaple 
-PRIMUS LITE+ Stove
-Quechua Water
+1. Firemaple 
+2. PRIMUS LITE+ Stove
+3. Quechua Water
 
 
 

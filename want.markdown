@@ -119,6 +119,8 @@ fjallraven tailand trail/ indonesia discovery
 
 2019.8  智能门锁，智能马桶，<del>群晖nas</del>
 
+2020.7  APC BK650M2-CH UPS， 飞利浦空气炸锅（要能用洗碗机洗）
+
 
 [https://www.douban.com/doulist/45368167/][8]
 

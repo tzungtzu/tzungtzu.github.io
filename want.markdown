@@ -105,7 +105,7 @@ fjallraven tailand trail/ indonesia discovery
 
 要给爹妈买的东西：<del>电动牙刷，手持吸尘器Black & Decker（买了dyson）</del>，夹蒜器（action）
 
-2017：群晖 DS218+ , <del>Nintendo Switch, Bose soundsport wireless, 湿厕纸</del>
+2017： <del>群晖 DS218+ ,intendo Switch, Bose soundsport wireless, 湿厕纸</del>
 
 2017.11: Osprey Packs Transporter 40 Expedition Duffel, <del>Osprey Daylite (2019.3)</del>
 

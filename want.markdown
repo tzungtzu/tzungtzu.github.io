@@ -92,18 +92,30 @@ fjallraven tailand trail/ indonesia discovery
 2. PRIMUS LITE+ Stove
 3. Quechua Water
 
+### fitness
+lululemon T.H.E shorts BLK
+lululemon bowline shorts BLK
+lululemon metal vent BLUE
+lululemon in mind pants
 
-
+lululemon 户外平替
+or echo LS 
+smartwool LS
+or shorts
 
 
 ### shopping list 欲购清单 (谁知道什么时候会买呢)
 
 
-<del>邮差包，AKG Q350，料理机，运动半指手套, [osprey pixel 22][2][3]，Bose QC 20i, 机械键盘,，Garmin Forerunner 235, GoPro Hero5 Session,  Apple Watch, Time Capsule[6] </del> 
+<del>邮差包，AKG Q350，料理机，运动半指手套, [osprey pixel 22][2][3]，Bose QC 20i, 机械键盘,，Garmin Forerunner 235, GoPro Hero5 Session,  Apple Watch, Time Capsule[6]，[空气炸锅][4] </del> 
 
- The North Face Summit Series, Bose Soundlink Mini 2, Lego Technic，拼图 [空气炸锅][4]，手帕，蔡赟款Kason C7，[Withings Thermo][5]， Taylor GS Mini(最近迷 Taylor Baby)， ARC’TERYX Mistral 8L，登山安全守，young person card卡包, [Subway Coat Hooks][7]，Don’t Starve 冬帽, 40L+ 烤箱，带烘干功能洗衣机，Encre Noire Lalique for men，
+ The North Face Summit Series, Bose Soundlink Mini 2, Lego Technic，拼图，手帕，蔡赟款Kason C7，[Withings Thermo][5]， Taylor GS Mini(最近迷 Taylor Baby)， ARC’TERYX Mistral 8L，登山安全守，young person card卡包, [Subway Coat Hooks][7]，Don’t Starve 冬帽, 40L+ 烤箱，带烘干功能洗衣机，Encre Noire Lalique for men，
 
-要给爹妈买的东西：<del>电动牙刷，手持吸尘器Black & Decker（买了dyson）</del>，夹蒜器（action）
+ polartec 抓绒
+
+
+
+要给爹妈买的东西：<del>电动牙刷，手持吸尘器Black & Decker（买了dyson）</del>，夹蒜器（action）, 便携血压计，按摩仪
 
 2017： <del>群晖 DS218+ ,intendo Switch, Bose soundsport wireless, 湿厕纸</del>
 
@@ -111,15 +123,17 @@ fjallraven tailand trail/ indonesia discovery
 
 2018.9: lego 10255，lego delft[9]
 
-2018.10: bose soundlink mini2, NAS
+2018.10: bose soundlink mini2
 
-2018.12. Anker 站立式无线充电座,Anker 二合一充电器
+2018.12. Anker 站立式无线充电座, Anker 二合一充电器
 
 19.1 Smartwool PhD Light Base Layer Hoodie
 
 2019.8  智能门锁，智能马桶，<del>群晖nas</del>
 
-2020.7  APC BK650M2-CH UPS， 飞利浦空气炸锅（要能用洗碗机洗）
+2020.7  <del>APC BK650M2-CH UPS，</del> 飞利浦空气炸锅（要能用洗碗机洗）
+
+2021.5  Nordisk 收纳箱
 
 
 [https://www.douban.com/doulist/45368167/][8]

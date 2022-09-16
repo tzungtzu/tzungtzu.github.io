@@ -11,11 +11,11 @@ layout: page
 画画；书法|
 钢琴；吉他；架子鼓|
 植物入门ing|
-滑板|
+滑板：网球|
 肠粉
 
 用时间块来记录做的时间
-记录自己开车的公里数（已经有记录油耗的app
+记录自己开车的公里数（已经有记录油耗的app） tesla 自带，配合teslamate
 
 
 ### 刷新人生经验
@@ -29,10 +29,10 @@ fjallraven tailand trail/ indonesia discovery
 每周两次健身
 虽然现在不有氧了，但是一个月一次跑步吧
 -> 每周跳舞1次，无氧1次，游泳1次（2018.8）
-
+-> 每周健身2次，打球1次，游泳1次（2022.9）
 
 [想读的书][1]
-
+寻味东西
 
 
 ### Equipments of Mine
@@ -43,10 +43,10 @@ fjallraven tailand trail/ indonesia discovery
 1. Asus AC-RT5300 路由器
 2. Mac Mini Late 2012 16G+128G SSD+512G HDD 
 3. iPhone X 64G
-4. Bose QC30
+4. Bose QC30 -> airpords pro 2018
 5. Apple Watch Series 3
 6. MacBook Pro Early 2015 512G
-7. 500G WD SSD work as Time Machine
+7. 500G WD SSD work as Time Machine -> ds218plus
 
 ### Daily
 
@@ -103,6 +103,14 @@ or echo LS
 smartwool LS
 or shorts
 
+<want> 
+ lululemon surge jogger m
+ lululemon abc sports m
+
+
+### badminton
+kason 300Ti
+victor SH-P9200 -> P9200 功夫
 
 ### shopping list 欲购清单 (谁知道什么时候会买呢)
 
@@ -135,6 +143,7 @@ or shorts
 
 2021.5  Nordisk 收纳箱
 
+2022.9 Apple TV 4K 2021， 100zz
 
 [https://www.douban.com/doulist/45368167/][8]
 

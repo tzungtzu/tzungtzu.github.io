@@ -9,8 +9,8 @@
 * |\.|._)._)
 * --------------------------------- */
 
-@import url(http://fonts.googleapis.com/css?family=Overlock);
-@import url(http://fonts.googleapis.com/css?family=Coda);
+@import url(https://fonts.googleapis.com/css?family=Overlock);
+@import url(https://fonts.googleapis.com/css?family=Coda);
 
 $page-width: 680;
 $page-width-round: 700;
@@ -35,7 +35,8 @@ a {
 
 body {
     font-size: 14px;
-    font-family: "Helvetica","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-family: 'Noto Sans SC', 'Roboto', "telexregular", "Overlock", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-weight: normal;
     color: #555555;
     background-image: url("/media/css/bg.png");
 }
@@ -59,10 +60,13 @@ ol, ul {
 
 #main {
     margin: 2em 0 1em 0;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 #header {
     @include page;
+    width: min(#{$page-width + 70}px, 100%);
 
     a {
         color: #999999;
@@ -76,7 +80,7 @@ ol, ul {
     h1 {
         display: inline-block;
         margin-right: 1em;
-        font-family: "Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        font-family: 'Noto Sans SC', 'Roboto', "Coda", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     }
 
     nav {
@@ -84,7 +88,7 @@ ol, ul {
         a {
             margin: 0 .5em;
             display: inline-block;
-            font-family: "Coda","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            font-family: 'Noto Sans SC', 'Roboto', "Coda", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
             text-transform: uppercase;
         }
     }
@@ -92,6 +96,7 @@ ol, ul {
 
 #content {
     @include page;
+    width: min(100%, 800px);
 
     font-size: 1.1em;
     line-height: 1.7em;
@@ -116,10 +121,11 @@ ol, ul {
     $shadow-offset: 4;
     .post {
         img {
-            max-width: #{$page-width - $border-width * 2 + $shadow-offset * 2}px;
+            max-width: 100%;
             display: block;
             box-shadow: #999 0px #{$shadow-offset * 2}px #{$shadow-offset}px -#{$shadow-offset}px;
             margin: .5em auto;
+            height: auto;
         }
 
         $w: $page_width_round;
@@ -229,6 +235,7 @@ hr {
 
 footer {
     @include page;
+    width: min(100%, 660px);
 
     display: block;
     font-family: "Balthazar";
@@ -259,6 +266,42 @@ li[id*='dsq-like-'] {
 #dsq-global-toolbar, #dsq-like-tooltip, #dsq-sort-by, .dsq-comment-moderate {
     display:none;
 }
+
+@media (max-width: 820px) {
+    #main {
+        margin-top: 1rem;
+        padding: 0 .75rem;
+    }
+
+    #header h1,
+    #header nav {
+        display: block;
+    }
+
+    #header nav a {
+        margin: 0 .75rem .5rem 0;
+    }
+
+    #content {
+        font-size: 1rem;
+    }
+
+    #content article {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    #content pre code {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer {
+        padding-bottom: 1rem;
+    }
+}
 .dsq-comment-header {
     border: none !important;
     background: none !important;
@@ -276,4 +319,3 @@ li[id*='dsq-like-'] {
     font-size: 13px;
     line-height:1.6;
 }
-

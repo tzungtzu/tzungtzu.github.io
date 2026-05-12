@@ -1,9 +1,12 @@
 markdown: kramdown
-highlighter: true
 permalink: /:year/:month/:day/:title.html
 name: "tzungtzu"
 markdown: kramdown
 highlighter: rouge
+title: "TZUNGTZU"
+description: "tzungtzu 的个人博客，记录技术、生活与长期兴趣。"
+url: "https://tzungtzu.com"
+lang: "zh-CN"
 
 
 #每页显示的文章数
@@ -11,8 +14,8 @@ paginate: 5
 
 
 author: "tzungtzu"
-atom-baseurl: "http://tzungtzu.com"
-disqus: "gopherwood"
+atom-baseurl: "https://tzungtzu.com"
+disqus: "tzungtzu"
 
 navigations:
   - title: Archive
@@ -26,11 +29,10 @@ navigations:
     href: /about.html
   - title: Gallery
     class: fa fa-film
-    href: http://foto.lhzhang.com
+    href: https://foto.lhzhang.com
   - title: Blogroll
     class: fa fa-link
     href: /links.html
   - title: Subscribe
     class: fa fa-rss
     href: /atom.xml
-

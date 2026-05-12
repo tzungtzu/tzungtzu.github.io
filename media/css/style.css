@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Overlock);
-@import url(http://fonts.googleapis.com/css?family=Coda);
+@import url(https://fonts.googleapis.com/css?family=Overlock);
+@import url(https://fonts.googleapis.com/css?family=Coda);
 /*------------------------------------
 * tzungtzu
 *
@@ -22,7 +22,7 @@ a {
 body {
   font-size: 14px;
   font-family: 'Noto Sans SC', 'Roboto',"telexregular","Overlock","Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-weight:normal;
+  font-weight: normal;
   color: #555555;
   background-image: url("/media/css/bg.png"); }
 
@@ -39,10 +39,13 @@ ol, ul {
   list-style-position: inside; }
 
 #main {
-  margin: 2em 0 1em 0; }
+  margin: 2em 0 1em 0;
+  padding: 0 1rem;
+  box-sizing: border-box; }
 
 #header {
   width: 750px;
+  width: min(750px, 100%);
   margin: 0 auto; }
   #header a {
     color: #999999;
@@ -62,7 +65,7 @@ ol, ul {
       text-transform: uppercase; }
 
 #content {
-  width: 800px;
+  width: min(100%, 800px);
   margin: 0 auto;
   font-size: 1.1em;
   line-height: 1.7em; }
@@ -76,10 +79,11 @@ ol, ul {
     #content a:hover {
       color: #55bbee; }
   #content .post img {
-    max-width: 750px;
+    max-width: 100%;
     display: block;
     box-shadow: #999999 0px 8px 4px -4px;
-    margin: .5em auto; }
+    margin: .5em auto;
+    height: auto; }
   #content .post .image-700 {
     margin-left: -28px;
     margin-right: -28px;
@@ -180,7 +184,7 @@ hr {
   border-bottom: 1px dashed #f9f9f9; }
 
 footer {
-  width: 660px;
+  width: min(100%, 660px);
   margin: 0 auto;
   display: block;
   font-family: "Balthazar";
@@ -247,6 +251,27 @@ li[id*='dsq-like-'] {
   	  font-family: Verdana;
   	  color:green;
   }
-  
-  
 
+@media (max-width: 820px) {
+  #main {
+    margin-top: 1rem;
+    padding: 0 .75rem; }
+  #header h1,
+  #header nav {
+    display: block; }
+  #header nav a {
+    margin: 0 .75rem .5rem 0; }
+  #content {
+    font-size: 1rem; }
+  #content article {
+    padding: 1rem;
+    margin: 1rem 0; }
+  #content pre code {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  footer {
+    padding-bottom: 1rem; } }
+  
+  
